@@ -43,7 +43,7 @@ header{background-color: #fff;}
 
 #header button{
   font-family: inherit;
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 #create_card{
