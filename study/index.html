@@ -9,12 +9,39 @@
     <title>Study</title>
 </head>
 <body>
+
     <main>
-        <div class="container">
-            <div id="header">
-                <h1>Study Time :D</h1>
+
+        <header>
+            <div class="container">
+                <div id="header">
+                    <h1>Flashcards</h1>
+                    <button id="home_button">Home</button>
+                </div>
             </div>
-        </div>
+        </header>
+        
+        <section>
+            <div class="container">
+                <div id="quiz_box">
+                    <label for="Question">Question</label>
+                    <br>
+                    <textarea id="answer" rows="5"></textarea>
+                    <div id="answer_options">
+                        <button id="favorite_card">Favorite Card</button>
+                        <button id="submit_answer_button">Submit</button>
+                    </div>
+                </div>
+
+                <div id="study_progress">
+                    <div id="back_arrow" class="arr left"><div class="arrow"></div></div>
+                    <h2 id="progress_bar">1/1</h2>
+                    <div id="next_arrow" class="arr right"><div class="arrow"></div></div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 
     <script src="studyscript.js"></script>

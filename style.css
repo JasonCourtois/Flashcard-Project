@@ -25,6 +25,10 @@ button:hover{
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+button:active{
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 .container{
   width: 1280px;
   margin: auto;
