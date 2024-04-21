@@ -109,6 +109,27 @@ header{background-color: #fff;}
 
 .fa-minus:hover{color: red;}
 
+.star_icon{
+  top: 3%;
+  left: 2%;
+  position: absolute;
+  color: #1a1a1a;
+  transition: 0.3s ease-out;
+}
+
+.study_favorite_button {
+  display: none
+}
+
+.fa.fa-star{
+  color: #838383;
+  cursor: pointer;
+}
+
+.study_favorite_button:checked + .fa.fa-star{
+  color: #ffe400;
+}
+
 @media(max-width:1280px){
   .container{width: 100%;}
 }

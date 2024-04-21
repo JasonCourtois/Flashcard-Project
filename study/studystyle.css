@@ -69,15 +69,10 @@ header{background-color: #fff;}
     padding: 0.5rem
 }
 
-#quiz_box label[for="Question"]{
-    display: block;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
 #question_header{
     display: flex;
     text-align: center;
+    justify-content: center;
 }
 
 #answer_options{

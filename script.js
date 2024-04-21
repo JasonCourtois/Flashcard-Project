@@ -23,6 +23,7 @@ flashcardMaker = (text, delThisIndex) => {
   const question = document.createElement('h2');
   const answer = document.createElement('h2');
   const del = document.createElement('i');
+  const star = document.createElement('i');
 
   flashcard.className = 'flashcard';
 
@@ -39,9 +40,29 @@ flashcardMaker = (text, delThisIndex) => {
     window.location.reload();
   })
 
+  // Code for favorite star
+  star.className = 'star_icon'
+
+  let star_checkbox = document.createElement('input');
+  star_checkbox.setAttribute('type', 'checkbox');
+  star_checkbox.setAttribute('id', 'study_favorite_button');
+
+  let star_label = document.createElement('label');
+  star_label.setAttribute('for', 'study_favorite_button');
+  star_label.setAttribute('class', 'fa fa-star');
+
+  // Add code for favoriting here!!!!
+  star.addEventListener("click", () =>{
+
+  })
+
+  star.appendChild(star_checkbox);
+  star.appendChild(star_label);
+
   flashcard.appendChild(question);
   flashcard.appendChild(answer);
   flashcard.appendChild(del);
+  flashcard.appendChild(star);
 
   flashcard.addEventListener("click", () => {
     if(answer.style.display == "none")
