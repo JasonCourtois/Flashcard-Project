@@ -1,0 +1,2 @@
+At end of study session, log correctness, put the most incorrect at start of study session
+FISHER YATES SHUFFLE

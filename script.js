@@ -61,7 +61,9 @@ addFlashcard = () => {
 
   let flashcard_info = {
     'my_question' : question.value,
-    'my_answer'  : answer.value
+    'my_answer'  : answer.value,
+    'correctness' : -1,
+    'is_favorite' : false
   }
 
   contentArray.push(flashcard_info);
