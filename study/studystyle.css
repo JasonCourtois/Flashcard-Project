@@ -54,6 +54,7 @@ header{background-color: #fff;}
     width: 370px;
     margin:auto;
     padding: 20px;
+    padding-top: 10px;
     margin-top: 10px;
     background: whitesmoke;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
@@ -69,15 +70,21 @@ header{background-color: #fff;}
 }
 
 #quiz_box label[for="Question"]{
-display: block;
-font-size: 1.5rem;
-text-align: center;
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#question_header{
+    display: flex;
+    text-align: center;
 }
 
 #answer_options{
+    margin-top:5px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #answer_options button{
@@ -111,7 +118,7 @@ text-align: center;
     border-left: 8px solid #202020;
     transform: translate(-50%, -50%) rotate(45deg);
     top: 50%;
-    left:50%;
+    left: 50%;
 }
 
 .arr:hover{
@@ -130,15 +137,23 @@ text-align: center;
     transform: rotate(90deg);
 }
 
-.fa-minus{
-  top: 3%;
-  right: 2%;
-  position: absolute;
-  color: #1a1a1a;
-  transition: 0.3s ease-out;
+.favorite{
+    display: flex;
+    justify-content: end;
 }
 
-.fa-minus:hover{color: red;}
+#study_favorite_button {
+    display: none
+}
+
+.fa.fa-star{
+    color: #838383;
+    cursor: pointer;
+}
+
+#study_favorite_button:checked + .fa.fa-star{
+    color: #ffe400;
+}
 
 @media(max-width:1280px){
   .container{width: 100%;}
