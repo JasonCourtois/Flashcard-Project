@@ -13,3 +13,51 @@ body{
 }
 
 header{background-color: #fff;}
+
+button{
+    padding: 8px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background: whitesmoke;
+}
+  
+button:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+button:active{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.container{
+    width: 1280px;
+    margin: auto;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 20px;
+  background: #fff;
+}
+
+#header button{
+  font-family: inherit;
+  border: 1px solid black;
+}
+
+.column {
+    float: left;
+    width: 33%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

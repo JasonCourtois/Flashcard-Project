@@ -134,7 +134,7 @@ header{background-color: #fff;}
 
 .favorite{
     display: flex;
-    justify-content: end;
+    justify-content: baseline;
 }
 
 #study_favorite_button {
@@ -148,6 +148,17 @@ header{background-color: #fff;}
 
 #study_favorite_button:checked + .fa.fa-star{
     color: #ffe400;
+}
+
+.finish_section
+{
+    display: flex;
+    justify-content: center;
+}
+
+.finish_section button
+{
+    width: 150px;
 }
 
 @media(max-width:1280px){

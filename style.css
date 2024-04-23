@@ -50,6 +50,11 @@ header{background-color: #fff;}
   border: 1px solid black;
 }
 
+#study_button{
+  width:150px;
+  font-size: 1.5rem;
+}
+
 #create_card{
   display: none;
   width: 370px;
@@ -117,7 +122,7 @@ header{background-color: #fff;}
   transition: 0.3s ease-out;
 }
 
-.study_favorite_button {
+.favorite_button {
   display: none
 }
 
@@ -126,7 +131,7 @@ header{background-color: #fff;}
   cursor: pointer;
 }
 
-.study_favorite_button:checked + .fa.fa-star{
+.favorite_button:checked + .fa.fa-star{
   color: #ffe400;
 }
 

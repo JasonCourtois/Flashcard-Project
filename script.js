@@ -45,10 +45,11 @@ flashcardMaker = (text, delThisIndex) => {
 
   let star_checkbox = document.createElement('input');
   star_checkbox.setAttribute('type', 'checkbox');
-  star_checkbox.setAttribute('id', 'study_favorite_button');
+  star_checkbox.setAttribute('id', delThisIndex.toString());
+  star_checkbox.setAttribute('class', 'favorite_button');
 
   let star_label = document.createElement('label');
-  star_label.setAttribute('for', 'study_favorite_button');
+  star_label.setAttribute('for', delThisIndex.toString());
   star_label.setAttribute('class', 'fa fa-star');
 
   // Add code for favoriting here!!!!
