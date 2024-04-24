@@ -47,15 +47,17 @@ flashcardMaker = (text, delThisIndex) => {
   star_checkbox.setAttribute('type', 'checkbox');
   star_checkbox.setAttribute('id', delThisIndex.toString());
   star_checkbox.setAttribute('class', 'favorite_button');
+  star_checkbox.checked = contentArray[delThisIndex].is_favorite;
+  
+  star_checkbox.addEventListener("click", () => {
+    contentArray[delThisIndex].is_favorite = !contentArray[delThisIndex].is_favorite;
+    localStorage.setItem('items', JSON.stringify(contentArray));
+  })
 
   let star_label = document.createElement('label');
   star_label.setAttribute('for', delThisIndex.toString());
   star_label.setAttribute('class', 'fa fa-star');
 
-  // Add code for favoriting here!!!!
-  star.addEventListener("click", () =>{
-
-  })
 
   star.appendChild(star_checkbox);
   star.appendChild(star_label);
@@ -85,7 +87,7 @@ addFlashcard = () => {
     'my_question' : question.value,
     'my_answer'  : answer.value,
     'correctness' : -1,
-    'is_favorite' : false
+    'is_favorite' : false,
   }
 
   contentArray.push(flashcard_info);
