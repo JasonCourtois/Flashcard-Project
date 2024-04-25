@@ -20,7 +20,7 @@ document.getElementById("close_card_box").addEventListener("click", () => {
 
 document.getElementById("study_button").addEventListener("click", () => {
   if(contentArray.length == 0) {
-    alert('Add card, moron');
+    alert('Please add a card!');
   } else {
     window.location.href='study/index.html';
   }

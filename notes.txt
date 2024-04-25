@@ -2,7 +2,7 @@ At end of study session, log correctness, put the most incorrect at start of stu
 FISHER YATES SHUFFLE
 
 Stuff to do:
-- display answer on question completion
+- display answer on question completion -DON'T WANT
 - add finishing screen when done study
     - Do this on another page
     - implement string comparisons
@@ -11,3 +11,8 @@ Stuff to do:
 - toggles between sorting algorithms
 - import/export flashcards
 - fix changing favorite mid study session, fix changing the origingal array in storage - DONE
+
+
+Presentaion notes:
+- Algorithm Demonstrations
+    - Show how dice-coefficent doesn't always work how we want ex) "oneee" and "one" returns 1

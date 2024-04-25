@@ -1,4 +1,5 @@
-import { mergesort } from './sorting.js';
+import { mergesort, dice_coefficient } from '../sorting.js';
+
 /*
     Content array stores all of the flashcards unsorted
     Study array at first stores favorite items only, then not favorites are concatanted at the end
@@ -26,8 +27,8 @@ for (let flashcard of content_array) {
 }
 
 // 2)
-study_array = mergesort(study_array);
-not_favorites = mergesort(not_favorites);
+study_array = mergesort(study_array, 1);
+not_favorites = mergesort(not_favorites, 1);
 study_array = study_array.concat(not_favorites);
 
 // 3)
@@ -68,10 +69,22 @@ document.getElementById("study_favorite_button").addEventListener("click", () =>
     localStorage.setItem('items', JSON.stringify(content_array));
 })
 
+document.getElementById("home_button").addEventListener("click", () => {
+    if(confirm("Are you sure you want to return home?")) {
+        window.location.href='../index.html';
+
+    }
+})
+
 document.getElementById("finish_button").addEventListener("click", () => {
     if (confirm("Are you sure you want to finish studying?")) {
+        document.getElementById("finish_button").disabled = true;
+        for(let answer of user_answers) {
+            answer[1].correctness = dice_coefficient(answer[1].my_answer, answer[0]);
+        }
+        user_answers = mergesort(user_answers, 2);
         localStorage.setItem('answers', JSON.stringify(user_answers));
-        document.getElementById("finsh_button").disabled = true;
+        localStorage.setItem('items', JSON.stringify(content_array));
     } 
 })
 
