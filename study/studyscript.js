@@ -31,10 +31,10 @@ not_favorites = mergesort(not_favorites);
 study_array = study_array.concat(not_favorites);
 
 // 3)
-let user_answers = [];
+let user_answers = [];  // Index 0: User answer, Index 1: refrence to flashcard in content array
 
 for (let i = 0; i < study_array.length; i++) {
-    user_answers.push("");
+    user_answers.push(["", study_array[i]]);
 }
 
 // 4)
@@ -65,22 +65,29 @@ document.getElementById("next_arrow").addEventListener("click", () => {
 
 document.getElementById("study_favorite_button").addEventListener("click", () => {
     study_array[progress].is_favorite = !study_array[progress].is_favorite;
-    localStorage.setItem('items', JSON.stringify(study_array));
+    localStorage.setItem('items', JSON.stringify(content_array));
+})
+
+document.getElementById("finsh_button").addEventListener("click", () => {
+    if (confirm("Are you sure you want to finish studying?")) {
+        localStorage.setItem('answers', JSON.stringify(user_answers));
+        document.getElementById("finsh_button").disabled = true;
+    } 
 })
 
 submit_button.addEventListener("click", () => {
     let answer = document.querySelector("#answer").value
-    if (user_answers[progress] == "" && answer != "") {
-        user_answers[progress] = answer;
+    if (user_answers[progress][0] == "" && answer != "") {
+        user_answers[progress][0] = answer;
         submit_button.disabled = true;
     }
 })
 
 function move (progress) {
-    submit_button.disabled = user_answers[progress] == "" ? false : true;
+    submit_button.disabled = user_answers[progress][0] == "" ? false : true;
     progress_bar.textContent = (progress + 1) + '/' + number_of_cards;
     question.textContent = study_array[progress].my_question;
-    answer_box.value = user_answers[progress];
+    answer_box.value = user_answers[progress][0];
     favorite_icon.checked = study_array[progress].is_favorite;
 }
 

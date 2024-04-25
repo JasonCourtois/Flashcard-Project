@@ -7,7 +7,7 @@ Stuff to do:
     - Do this on another page
     - implement string comparisons
     - Final score percentage
-- add favorite icon in home screen
+- add favorite icon in home screen - DONE
 - toggles between sorting algorithms
 - import/export flashcards
-- fix changing favorite mid study session, fix changing the origingal array in storage
+- fix changing favorite mid study session, fix changing the origingal array in storage - DONE
