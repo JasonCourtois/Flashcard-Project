@@ -18,6 +18,14 @@ document.getElementById("close_card_box").addEventListener("click", () => {
   document.getElementById("create_card").style.display = "none";
 });
 
+document.getElementById("study_button").addEventListener("click", () => {
+  if(contentArray.length == 0) {
+    alert('Add card, moron');
+  } else {
+    window.location.href='study/index.html';
+  }
+})
+
 flashcardMaker = (text, delThisIndex) => {
   const flashcard = document.createElement("div");
   const question = document.createElement('h2');

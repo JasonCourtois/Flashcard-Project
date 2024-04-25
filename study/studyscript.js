@@ -68,7 +68,7 @@ document.getElementById("study_favorite_button").addEventListener("click", () =>
     localStorage.setItem('items', JSON.stringify(content_array));
 })
 
-document.getElementById("finsh_button").addEventListener("click", () => {
+document.getElementById("finish_button").addEventListener("click", () => {
     if (confirm("Are you sure you want to finish studying?")) {
         localStorage.setItem('answers', JSON.stringify(user_answers));
         document.getElementById("finsh_button").disabled = true;
