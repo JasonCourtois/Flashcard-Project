@@ -1,4 +1,47 @@
 var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// Get the modal element
+var modal = document.getElementById('settingsModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("settings_button");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Get all anchor elements with class 'algorithm'
+var algorithmLinks = document.getElementsByClassName("algorithm");
+
+// Add click event listeners to each anchor element
+for (var i = 0; i < algorithmLinks.length; i++) {
+    algorithmLinks[i].addEventListener('click', function(event) {
+        // Prevent the default behavior of anchor elements (preventing navigation)
+        event.preventDefault();
+        
+        // Get the text content of the clicked anchor element
+        var selectedAlgorithm = this.textContent;
+        
+        // You can now use the selectedAlgorithm variable as needed
+        console.log("Selected algorithm:", selectedAlgorithm);
+    });
+}
+
+
 
 document.getElementById("save_card").addEventListener("click", () => {
   addFlashcard();

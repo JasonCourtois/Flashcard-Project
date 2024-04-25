@@ -2,6 +2,10 @@ let answers = JSON.parse(localStorage.getItem('answers'));
 
 let results_table = document.getElementById('results_table');
 
+document.getElementById("home_button").addEventListener("click", () => {
+    window.location.href='../index.html';
+})
+
 displayResult = () => {
 
     for (let i = answers.length - 1; i >= 0; i--)
