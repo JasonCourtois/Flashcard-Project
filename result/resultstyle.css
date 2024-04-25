@@ -52,8 +52,10 @@ button:active{
 
 table {
     margin: 0 auto;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 100px auto;
+    margin-right: 100px auto;
+    width: 40%;
+    border: 1px solid black;
 }
 
 /* Make all columns take up equal horizontal space */
@@ -61,6 +63,10 @@ table tr td {
     width: 33.33%; /* Divide the width equally for 3 columns */
     text-align: center; /* Optional: Center align the content within cells */
     word-wrap: break-word; 
+}
+
+table th, td {
+    border: 1px solid black;
 }
 
 .row_divider{

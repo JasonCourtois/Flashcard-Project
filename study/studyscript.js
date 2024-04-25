@@ -85,6 +85,8 @@ document.getElementById("finish_button").addEventListener("click", () => {
         user_answers = mergesort(user_answers, 2);
         localStorage.setItem('answers', JSON.stringify(user_answers));
         localStorage.setItem('items', JSON.stringify(content_array));
+        window.location.href='../result/index.html';
+
     } 
 })
 

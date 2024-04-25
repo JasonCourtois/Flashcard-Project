@@ -5,9 +5,11 @@ document.getElementById("save_card").addEventListener("click", () => {
 });
 
 document.getElementById("delete_cards").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-  contentArray = [];
+  if(confirm("Are you sure you want to delete all cards?")){ 
+    localStorage.clear();
+    flashcards.innerHTML = '';
+    contentArray = [];
+  }
 });
 
 document.getElementById("show_card_box").addEventListener("click", () => {

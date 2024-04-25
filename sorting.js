@@ -57,24 +57,22 @@ function merge2(left, right) {
     Space complexity O(max(n, m)) where n is the size of the guess and m is the size of answer.
 */
 export function dice_coefficient(answer, guess) {
-    // Turn the input strings into sets
-    let answer_set = new Set(answer);
-    let guess_set = new Set(guess);
-
-    // Calculate the added size of the two sets
-    const total_size = answer_set.size + guess_set.size;
-
-    /*  Calculate the intersection by:
-        Turning the answer set back into an array,
-        Filtering by items also in the guess set,
-        Then turning that array back into a set
-    */
-    const intersection = new Set([...answer_set].filter(x => guess_set.has(x)));
-
-    // Last computation for the coefficient.
-    const coefficient = (2 * intersection.size) / (total_size);
-    return coefficient;
+    const answer_bigrams = getBigrams(answer);
+    const guess_bigrams = getBigrams(guess);
+    return (2 * intersect(answer_bigrams, guess_bigrams).size) / (answer_bigrams.size + guess_bigrams.size);
 }
+
+function getBigrams(str) {
+    const bigrams = new Set();
+    for (let i = 0; i < str.length - 1; i += 1) {
+      bigrams.add(str.substring(i, i + 2));
+    }
+    return bigrams;
+  }
+  
+  function intersect(set1, set2) {
+    return new Set([...set1].filter((x) => set2.has(x)));
+  }
 
 /*
     Runtime O(n*m) where n is the length of guess and m the length of answer
