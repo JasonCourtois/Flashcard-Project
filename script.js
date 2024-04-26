@@ -1,4 +1,15 @@
 var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+
+if(!localStorage.getItem('settings')) {
+  localStorage.setItem('settings', JSON.stringify({'sorting' : 'mergesort', 'comparing' : 'sorensen'}));
+}
+
+var settings = JSON.parse(localStorage.getItem('settings'));
+
+document.getElementById(settings.sorting).checked = true;
+document.getElementById(settings.comparing).checked = true;
+
+
 // Get the modal element
 var modal = document.getElementById('settingsModal');
 
@@ -24,20 +35,18 @@ window.onclick = function(event) {
   }
 }
 
-// Get all anchor elements with class 'algorithm'
+// Setup for event listeners on radio elements
 var algorithmLinks = document.getElementsByClassName("algorithm");
 
-// Add click event listeners to each anchor element
+// Add click event listeners to each element
 for (var i = 0; i < algorithmLinks.length; i++) {
-    algorithmLinks[i].addEventListener('click', function(event) {
-        // Prevent the default behavior of anchor elements (preventing navigation)
-        event.preventDefault();
-        
-        // Get the text content of the clicked anchor element
-        var selectedAlgorithm = this.textContent;
-        
-        // You can now use the selectedAlgorithm variable as needed
-        console.log("Selected algorithm:", selectedAlgorithm);
+    algorithmLinks[i].addEventListener('click', function(event) {    
+        if (this.classList.contains("sorting")) {
+          settings.sorting = this.value;
+        } else if (this.classList.contains("comparing")) {
+          settings.comparing = this.value;
+        }
+        localStorage.setItem('settings', JSON.stringify(settings));
     });
 }
 
@@ -52,6 +61,7 @@ document.getElementById("delete_cards").addEventListener("click", () => {
     localStorage.clear();
     flashcards.innerHTML = '';
     contentArray = [];
+    localStorage.setItem('settings', JSON.stringify({'sorting' : 'mergesort', 'comparing' : 'sorensen'}));
   }
 });
 

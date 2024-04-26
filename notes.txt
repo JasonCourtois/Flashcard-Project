@@ -3,16 +3,18 @@ FISHER YATES SHUFFLE
 
 Stuff to do:
 - display answer on question completion -DON'T WANT
-- add finishing screen when done study
-    - Do this on another page
-    - implement string comparisons
-    - Final score percentage
+- add finishing screen when done study - DONE
+    - Do this on another page - DONE
+    - implement string comparisons - Half Done
+    - Final score percentage - DONE
 - add favorite icon in home screen - DONE
-- toggles between sorting algorithms
+- toggles between sorting algorithms 
 - import/export flashcards
 - fix changing favorite mid study session, fix changing the origingal array in storage - DONE
+- Maybe dislay time it takes to run algorithms
 
 
 Presentaion notes:
 - Algorithm Demonstrations
     - Show how dice-coefficent doesn't always work how we want ex) "oneee" and "one" returns 1
+    - Get large dataset, show 

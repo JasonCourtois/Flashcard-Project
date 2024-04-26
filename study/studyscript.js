@@ -1,4 +1,4 @@
-import { mergesort, dice_coefficient } from '../sorting.js';
+import { dice_coefficient, sort_array } from '../sorting.js';
 
 /*
     Content array stores all of the flashcards unsorted
@@ -16,6 +16,7 @@ import { mergesort, dice_coefficient } from '../sorting.js';
 var content_array = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 let study_array = [];
 let not_favorites = [];
+let number_answered = 0;
 
 // Go through content array and find favorite and not favorite
 for (let flashcard of content_array) {
@@ -27,8 +28,11 @@ for (let flashcard of content_array) {
 }
 
 // 2)
-study_array = mergesort(study_array, 1);
-not_favorites = mergesort(not_favorites, 1);
+//study_array = mergesort(study_array, 1);
+//not_favorites = mergesort(not_favorites, 1);
+study_array = sort_array(study_array, 1);
+not_favorites = sort_array(not_favorites, 1);
+
 study_array = study_array.concat(not_favorites);
 
 // 3)
@@ -70,31 +74,36 @@ document.getElementById("study_favorite_button").addEventListener("click", () =>
 })
 
 document.getElementById("home_button").addEventListener("click", () => {
-    if(confirm("Are you sure you want to return home?")) {
+    if(confirm("End study session and go home?")) {
         window.location.href='../index.html';
 
     }
 })
 
 document.getElementById("finish_button").addEventListener("click", () => {
-    if (confirm("Are you sure you want to finish studying?")) {
-        document.getElementById("finish_button").disabled = true;
-        for(let answer of user_answers) {
-            answer[1].correctness = dice_coefficient(answer[1].my_answer, answer[0]);
+    // only displays warning if there are some unanwered questions
+    if(number_answered < study_array.length) {
+        if (!confirm("There are unanswered questions! Do you want to submit test?")) { 
+            return;
         }
-        user_answers = mergesort(user_answers, 2);
-        localStorage.setItem('answers', JSON.stringify(user_answers));
-        localStorage.setItem('items', JSON.stringify(content_array));
-        window.location.href='../result/index.html';
+    }
 
-    } 
+    document.getElementById("finish_button").disabled = true;
+    for(let answer of user_answers) {
+        answer[1].correctness = dice_coefficient(answer[1].my_answer, answer[0]);
+    }
+    user_answers = sort_array(user_answers, 2);
+    localStorage.setItem('answers', JSON.stringify(user_answers));
+    localStorage.setItem('items', JSON.stringify(content_array));
+    window.location.href='../result/index.html';
 })
 
 submit_button.addEventListener("click", () => {
     let answer = document.querySelector("#answer").value
     if (user_answers[progress][0] == "" && answer != "") {
-        user_answers[progress][0] = answer;
         submit_button.disabled = true;
+        user_answers[progress][0] = answer;
+        number_answered++;
     }
 })
 

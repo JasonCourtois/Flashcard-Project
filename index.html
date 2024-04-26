@@ -29,26 +29,32 @@
     <div id="settingsModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Settings</h2>
-          <section>
-            <div class="container">
-              <div class="dropdown">
-                <button class="dropbtn">Sorting Algorithm</button>
-                <div class="dropdown-content">
-                  <a href="#" class="algorithm">Mergesort</a>
-                  <a href="#" class="algorithm">Quicksort</a>
-                </div>
-              </div>
-              <br>
-              <div class="dropdown">
-                <button class="dropbtn">String Comparison Algorithm</button>
-                <div class="dropdown-content">
-                  <a href="#" class="algorithm">Levenstein Distance</a>
-                  <a href="#" class="algorithm">Sorensen Dice Coefficient</a>
-                </div>
-              </div>
-            </div>
-          </section>
+        <h2>Algorithm Settings</h2>
+        <div class="radio-group">
+          <h3>Sorting:</h3>
+          <label>
+              <input type="radio" class="algorithm sorting" id="mergesort" name="sorting" value="mergesort">
+              Mergesort
+          </label>
+      
+          <label>
+              <input type="radio" class="algorithm sorting" id="quicksort" name="sorting" value="quicksort">
+              Quicksort
+          </label>
+      </div>
+      
+      <div class="radio-group">
+          <h3>Comparing:</h3>
+          <label>
+              <input type="radio" class="algorithm comparing" id="levenstein" name="comparing" value="levenstein">
+              Levenstein Distance
+          </label>
+      
+          <label>
+              <input type="radio" class="algorithm comparing" id="sorensen" name="comparing" value="sorensen">
+              Sorensen Dice Coefficient
+          </label>
+      </div>
       </div>
     </div>
 

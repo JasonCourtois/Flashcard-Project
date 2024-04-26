@@ -1,4 +1,6 @@
-export function mergesort(inputArray, mode){
+function mergesort(inputArray, mode){
+    console.log("hit merge");
+
     if (inputArray.length <= 1) {
         return inputArray;
     }
@@ -12,7 +14,7 @@ export function mergesort(inputArray, mode){
     } else if (mode == 2) {
         return merge2(mergesort(left, 2), mergesort(right, 2));
     } else {
-        alert("Mergesort called with bad argument.");
+        alert("Mergesort called with bad mode argument.");
     }
 }
 
@@ -51,6 +53,82 @@ function merge2(left, right) {
 
     return result.concat(left.slice(i)).concat(right.slice(j));
 }
+
+function partition1(inputArray, low, high) {
+    let pivot = inputArray[high].correctness;
+    let i = low - 1;
+  
+    for (let j = low; j <= high - 1; j++) {
+        if (inputArray[j].correctness < pivot) {
+            i++;
+            [inputArray[i], inputArray[j]] = [inputArray[j], inputArray[i]]; 
+        }
+    }
+
+    [inputArray[i + 1], inputArray[high]] = [inputArray[high], inputArray[i + 1]]; 
+    return i + 1; 
+}
+
+function partition2(inputArray, low, high) {
+    let pivot = inputArray[high][1].correctness;
+    let i = low - 1;
+  
+    for (let j = low; j <= high - 1; j++) {
+        if (inputArray[j][1].correctness < pivot) {
+            i++;
+            [inputArray[i], inputArray[j]] = [inputArray[j], inputArray[i]]; 
+        }
+    }
+
+    [inputArray[i + 1], inputArray[high]] = [inputArray[high], inputArray[i + 1]]; 
+    return i + 1; 
+}
+
+
+function recursive_quicksort(inputArray, low, high, mode) {
+    if (low < high) {
+        let index
+        if (mode == 1) {
+            index = partition1(inputArray, low, high);
+        } else if (mode == 2) {
+            index = partition2(inputArray, low, high);
+        } else {
+            alert("Quicksort called with bad mode argument.");
+        }
+        
+
+        recursive_quicksort(inputArray, low, index - 1, mode);
+        recursive_quicksort(inputArray, index + 1, high, mode);
+    }
+}
+
+function quicksort(inputArray, mode) {
+    recursive_quicksort(inputArray, 0, inputArray.length - 1, mode);
+    return inputArray;
+}
+
+export function sort_array(inputArray, mode) {
+    const settings = JSON.parse(localStorage.getItem('settings'));
+    if (settings.sorting == "mergesort") {
+        return mergesort(inputArray, mode);
+    } else if (settings.sorting == "quicksort") {
+        return quicksort(inputArray, mode);
+    } else {
+        alert("Settings not set to 'mergesort' or 'quicksort'");
+    }
+}
+
+export function compare_strings(answer, guess){
+    const settings = JSON.parse(localStorage.getItem('settings'));
+    if (settings.comparing == "levenstein") {
+        return levenshtein_distance(answer, guess);
+    } else if (settings.comparing == "sorensen") {
+        return dice_coefficient(answer, guess);
+    } else {
+        alert("Settings not set to 'levenstein' or 'quicksort'");
+    }
+}
+
 
 /*
     Runtime O(n*m) where n is the length of guess and m the length of answer
@@ -116,5 +194,8 @@ export function levenshtein_distance(answer, guess) {
     }
  
     // The result is the value at the bottom-right corner of the matrix
-    return currRow[n];
+    /*
+        Old return: return currRow[n];
+    */
+    return (1 - (currRow[n]/Math.max(n, m)));
 }

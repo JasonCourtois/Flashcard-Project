@@ -169,42 +169,21 @@ header{background-color: #fff;}
   cursor: pointer;
 }
 
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+.radio-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.radio-group h2 {
+  margin-bottom: 5px;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.radio-group label {
+  display: flex;
+  align-items: center; /* Align items vertically */
 }
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+.radio-group input[type="radio"] {
+  margin-right: 5px; /* Add margin to separate radio button from label */
 }
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 @media(max-width:1280px){
   .container{width: 100%;}
