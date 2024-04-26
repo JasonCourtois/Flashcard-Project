@@ -1,4 +1,4 @@
-import { dice_coefficient, sort_array } from '../sorting.js';
+import { sort_array, compare_strings } from '../sorting.js';
 
 /*
     Content array stores all of the flashcards unsorted
@@ -90,7 +90,7 @@ document.getElementById("finish_button").addEventListener("click", () => {
 
     document.getElementById("finish_button").disabled = true;
     for(let answer of user_answers) {
-        answer[1].correctness = dice_coefficient(answer[1].my_answer, answer[0]);
+        answer[1].correctness = compare_strings(answer[1].my_answer, answer[0]);
     }
     user_answers = sort_array(user_answers, 2);
     localStorage.setItem('answers', JSON.stringify(user_answers));

@@ -134,7 +134,7 @@ export function compare_strings(answer, guess){
     Runtime O(n*m) where n is the length of guess and m the length of answer
     Space complexity O(max(n, m)) where n is the size of the guess and m is the size of answer.
 */
-export function dice_coefficient(answer, guess) {
+function dice_coefficient(answer, guess) {
     const answer_bigrams = getBigrams(answer);
     const guess_bigrams = getBigrams(guess);
     return (2 * intersect(answer_bigrams, guess_bigrams).size) / (answer_bigrams.size + guess_bigrams.size);
@@ -156,7 +156,7 @@ function getBigrams(str) {
     Runtime O(n*m) where n is the length of guess and m the length of answer
     Space complexity O(n) where n is the size of the guess.
 */
-export function levenshtein_distance(answer, guess) {
+function levenshtein_distance(answer, guess) {
     const m = answer.length;
     const n = guess.length;
  
