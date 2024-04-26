@@ -72,3 +72,29 @@ table th, td {
 .row_divider{
     border-top: 2px solid #000000;
 }
+
+@media(max-width:1280px){
+    .container{width: 100%;}
+  }
+  
+  @media(max-width:768px){
+    .flashcard{margin: auto;}
+  
+    .flashcard{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media(max-width:480px){
+    #header{
+      padding: 20px;
+      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    #create_card{width: 95%;}
+  
+    .flashcard{width: 100%;}
+  }
