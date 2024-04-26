@@ -193,9 +193,6 @@ function levenshtein_distance(answer, guess) {
         prevRow = [...currRow];
     }
  
-    // The result is the value at the bottom-right corner of the matrix
-    /*
-        Old return: return currRow[n];
-    */
+    // The result is the value at the bottom-right corner of the matrix, currRow[n]
     return (1 - (currRow[n]/Math.max(n, m)));
 }

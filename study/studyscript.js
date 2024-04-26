@@ -18,6 +18,11 @@ let study_array = [];
 let not_favorites = [];
 let number_answered = 0;
 
+if (content_array.length == 0) {
+    alert("Please add a card before studying!");
+    window.location.href='../index.html';
+}
+
 // Go through content array and find favorite and not favorite
 for (let flashcard of content_array) {
     if (flashcard.is_favorite) {

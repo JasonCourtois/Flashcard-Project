@@ -2,14 +2,13 @@ At end of study session, log correctness, put the most incorrect at start of stu
 FISHER YATES SHUFFLE
 
 Stuff to do:
-- display answer on question completion -DON'T WANT
 - add finishing screen when done study - DONE
     - Do this on another page - DONE
-    - implement string comparisons - Half Done
+    - implement string comparisons - DONE
     - Final score percentage - DONE
 - add favorite icon in home screen - DONE
-- toggles between sorting algorithms 
-- import/export flashcards
+- toggles between sorting algorithms - DONE
+- import/export flashcards - DONE
 - fix changing favorite mid study session, fix changing the origingal array in storage - DONE
 - Maybe dislay time it takes to run algorithms
 

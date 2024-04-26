@@ -50,7 +50,58 @@ for (var i = 0; i < algorithmLinks.length; i++) {
     });
 }
 
+document.getElementById("import_card_button").addEventListener("click", () => {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.click();
+  contentArray = []
+  // Listen for change event when user selects a file
+  input.addEventListener("change", function() {
+    var file = input.files[0]; // Get the selected file
+    if (file) {
+      // File was selected, read its contents
+      var reader = new FileReader();
+      reader.onload = function(event) {
+          var content = event.target.result; // Content of the file
+          try {
+              // Parse the JSON data
+              var data = JSON.parse(content);
+              contentArray = data
+              localStorage.setItem('items', JSON.stringify(contentArray));
+              // Process the data (data is now a JavaScript object)
+          } catch (error) {
+              console.error("Error parsing JSON:", error);
+          }
+      };
+      // Read the file as text
+      reader.readAsText(file);
+   }
+   location.reload();
+  });
+});
 
+document.getElementById("export_card_button").addEventListener("click", () => {
+  if (contentArray.length == 0) {
+    alert("Please add at least one card before exporting!");
+    return;
+  }
+  const output = JSON.stringify(contentArray, null, 2);
+  const blob = new Blob([output], { type: 'application/json' });
+
+  // Create a temporary anchor element
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'data.json';
+
+  // Append the anchor element to the document body
+  document.body.appendChild(a);
+
+  // Trigger a click event on the anchor element
+  a.click();
+
+  // Remove the anchor element from the document body
+  document.body.removeChild(a);
+});
 
 document.getElementById("save_card").addEventListener("click", () => {
   addFlashcard();
