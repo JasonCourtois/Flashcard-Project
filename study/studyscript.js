@@ -109,6 +109,10 @@ submit_button.addEventListener("click", () => {
         submit_button.disabled = true;
         user_answers[progress][0] = answer;
         number_answered++;
+        if (progress + 2 <= number_of_cards) { 
+            progress++;
+            move(progress);
+        }
     }
 })
 
