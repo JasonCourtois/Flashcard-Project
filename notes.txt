@@ -16,4 +16,8 @@ Stuff to do:
 Presentaion notes:
 - Algorithm Demonstrations
     - Show how dice-coefficent doesn't always work how we want ex) "oneee" and "one" returns 1
-    - Get large dataset, show 
+    - Get large dataset, show
+- Talk about changes from proposal (no backend, use local storage)
+- Have graph of runtime differences
+- Test runtimes on quizlets
+- Say that we pulled some example sets from quizlet 
