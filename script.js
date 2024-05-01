@@ -109,10 +109,11 @@ document.getElementById("save_card").addEventListener("click", () => {
 
 document.getElementById("delete_cards").addEventListener("click", () => {
   if(confirm("Are you sure you want to delete all cards?")){ 
+    var temp = JSON.parse(localStorage.getItem('settings'));
     localStorage.clear();
     flashcards.innerHTML = '';
     contentArray = [];
-    localStorage.setItem('settings', JSON.stringify({'sorting' : 'mergesort', 'comparing' : 'sorensen'}));
+    localStorage.setItem('settings', JSON.stringify(temp));
   }
 });
 

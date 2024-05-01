@@ -1,6 +1,4 @@
 function mergesort(inputArray, mode){
-    console.log("hit merge");
-
     if (inputArray.length <= 1) {
         return inputArray;
     }
